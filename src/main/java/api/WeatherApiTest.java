@@ -40,7 +40,7 @@ public class WeatherApiTest {
 
     public List<Integer> weatherResultsApi(String cityName) {
         RestAssured.baseURI = API_URL;
-        List<Float> response = given()
+        List<Number> response = given()
           .param("q", cityName)
           .param("appid", APPID)
           .param("units", "metric")
@@ -53,10 +53,10 @@ public class WeatherApiTest {
           .extract().path("list.main.temp");
         System.out.println("Результат в кельвинах" + response);
         List<Integer> celsiusResult = new ArrayList<>();
-        for (float x : response) {
-            float celsiusTemp = (float) (x - 273.15);
-            int roundedCelsiusTemperature = Math.round(celsiusTemp);
-            celsiusResult.add(roundedCelsiusTemperature);
+        for (Number x : response) {
+            double celsiusTemp = x.doubleValue() - 273.15;
+            long roundedCelsiusTemperature = Math.round(celsiusTemp);
+            celsiusResult.add((int) roundedCelsiusTemperature);
         }
         return celsiusResult;
     }
