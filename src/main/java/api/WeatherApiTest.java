@@ -21,40 +21,40 @@ public class WeatherApiTest {
 //                .extract().body().jsonPath().getList("data", WeatherAPI.class);
 //        List<String> name = data.stream().map(WeatherAPI::getName).toList();
 //    }
-    public Object cityNamesApi(String cityName) {
+    public List<String> cityNamesApi(String cityName) {
         RestAssured.baseURI = API_URL;
         List<String> response = given()
-                .param("q", cityName)
-                .param("appid", APPID)
-                .param("units", "metric")
-                .when()
-                .get("/get")
-                .then().log().all()
-                .body("list.name", notNullValue())
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .extract().path("list.name");
+          .param("q", cityName)
+          .param("appid", APPID)
+          .param("units", "metric")
+          .when()
+          .get("/get")
+          .then().log().all()
+          .body("list.name", notNullValue())
+          .statusCode(200)
+          .contentType(ContentType.JSON)
+          .extract().path("list.name");
         System.out.println(response);
-       return response;
+        return response;
     }
 
-    public Object weatherResultsApi (String cityName) {
+    public List<Integer> weatherResultsApi(String cityName) {
         RestAssured.baseURI = API_URL;
         List<Float> response = given()
-                .param("q", cityName)
-                .param("appid", APPID)
-                .param("units", "metric")
-                .when()
-                .get("/get")
-                .then().log().all()
-                .body("list.main.temp", notNullValue())
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .extract().path("list.main.temp");
-        System.out.println("Результат в кельвинах"+ response);
-        List <Integer> celsiusResult = new ArrayList<>();
+          .param("q", cityName)
+          .param("appid", APPID)
+          .param("units", "metric")
+          .when()
+          .get("/get")
+          .then().log().all()
+          .body("list.main.temp", notNullValue())
+          .statusCode(200)
+          .contentType(ContentType.JSON)
+          .extract().path("list.main.temp");
+        System.out.println("Результат в кельвинах" + response);
+        List<Integer> celsiusResult = new ArrayList<>();
         for (float x : response) {
-         float celsiusTemp = (float) (x - 273.15);
+            float celsiusTemp = (float) (x - 273.15);
             int roundedCelsiusTemperature = Math.round(celsiusTemp);
             celsiusResult.add(roundedCelsiusTemperature);
         }

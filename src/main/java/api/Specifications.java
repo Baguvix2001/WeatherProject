@@ -8,9 +8,9 @@ import io.restassured.specification.RequestSpecification;
 public class Specifications {
     public static RequestSpecification requestSpec(String url) {
         return new RequestSpecBuilder()
-                .setBaseUri(url)
-                .setContentType(ContentType.JSON)
-                .build();
+          .setBaseUri(url)
+          .setContentType(ContentType.JSON)
+          .build();
     }
 
 }

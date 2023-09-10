@@ -42,7 +42,7 @@ public class TestRunStudy extends BaseTest {
     public void compareUiAndApiCity() {
         mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
         mainPage.clickOnSearchButton();
-        Assert.assertArrayEquals(new Object[]{weatherApiTest.cityNamesApi(CITY_WITH_MANY_RESULTS_LIST)}, new Object[]{mainPage.cityNameOnUi()});
+        Assert.assertArrayEquals(weatherApiTest.cityNamesApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.cityNameOnUi().toArray());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class TestRunStudy extends BaseTest {
     public void compareUiAndApiWeather() {
         mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
         mainPage.clickOnSearchButton();
-        Assert.assertArrayEquals(new Object[]{weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST)}, new Object[]{mainPage.weatherOnUi()});
+        Assert.assertArrayEquals(weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.weatherOnUi().toArray());
     }
 
     @Test

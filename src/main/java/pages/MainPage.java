@@ -42,21 +42,24 @@ public class MainPage {
         resultDropdownByCityName
                 .shouldBe(CollectionCondition.sizeGreaterThan(0));
         List<String> resultsNameList = new ArrayList<>();
-        resultDropdownByCityName.forEach(x -> resultsNameList.add(x.getText()));
+        resultDropdownByCityName.asFixedIterable().forEach(x -> resultsNameList.add(x.getText()));
+//        resultDropdownByCityName.forEach(x -> resultsNameList.add(x.getText()));
         for (String i : resultsNameList) {
             Assert.assertTrue(i.startsWith(cityName));
         }
         List<String> weatherValueList = new ArrayList<>();
-        resultDropdownWeatherValue.forEach(x -> weatherValueList.add(x.getText()));
+        resultDropdownWeatherValue.asFixedIterable().forEach(x -> weatherValueList.add(x.getText()));
+//        resultDropdownWeatherValue.forEach(x -> weatherValueList.add(x.getText()));
         for (String i : weatherValueList) {
             Assert.assertFalse(i.isEmpty());
         }
     }
 
-    public Object cityNameOnUi() {
+    public List<String> cityNameOnUi() {
         List<String> cityOnUiList = new ArrayList<>();
         sleep(2000);
-        resultDropdownByCityName.forEach(x -> cityOnUiList.add(x.getText()));
+        resultDropdownByCityName.asFixedIterable().forEach(x -> cityOnUiList.add(x.getText()));
+//        resultDropdownByCityName.forEach(x -> cityOnUiList.add(x.getText()));
         List<String> modifiedCities = new ArrayList<>();
         for (String x : cityOnUiList) {
             String[] parts = x.split(",");
@@ -67,10 +70,11 @@ public class MainPage {
         return modifiedCities;
     }
 
-    public Object weatherOnUi() {
+    public List<Integer> weatherOnUi() {
         List<String> weatherValueList = new ArrayList<>();
         sleep(2000);
-        resultDropdownWeatherValue.forEach(x -> weatherValueList.add(x.getText()));
+        resultDropdownWeatherValue.asFixedIterable().forEach(x -> weatherValueList.add(x.getText()));
+//        resultDropdownWeatherValue.forEach(x -> weatherValueList.add(x.getText()));
         List<Integer> modifiedValues = new ArrayList<>();
         for (String x : weatherValueList) {
             String numericText = x.replaceAll("[^0-9]", "");

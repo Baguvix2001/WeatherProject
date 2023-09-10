@@ -18,37 +18,41 @@ public class CreateAccountPage {
     private final SelenideElement captchaFrame = $x("//iframe [@title = 'reCAPTCHA']");
     private final SelenideElement createAccountSubmit = $x("//input [@class = 'btn btn-color btn-submit']");
 
-    public void fillUsernameField (String name) {
+    public void fillUsernameField(String name) {
         usernameInput
-                .shouldBe(Condition.interactable, Condition.editable)
-                .setValue(name);
+          .shouldBe(Condition.interactable, Condition.editable)
+          .setValue(name);
         Assert.assertEquals(name, usernameInput.getAttribute("value"));
     }
-    public void fillEmailField (String email) {
+
+    public void fillEmailField(String email) {
         emailInput.shouldBe(Condition.interactable, Condition.editable)
-                .setValue(email);
+          .setValue(email);
         Assert.assertEquals(email, emailInput.getAttribute("value"));
     }
-    public void fillPasswordFields (String password) {
+
+    public void fillPasswordFields(String password) {
         passwordInput
-                .shouldBe(Condition.interactable, Condition.editable)
-                .setValue(password).shouldBe(Condition.editable);
+          .shouldBe(Condition.interactable, Condition.editable)
+          .setValue(password).shouldBe(Condition.editable);
         Assert.assertEquals(password, passwordInput.getAttribute("value"));
         repeatPasswordInput
-                .shouldBe(Condition.interactable, Condition.editable)
-                .setValue(password).shouldBe(Condition.editable);
+          .shouldBe(Condition.interactable, Condition.editable)
+          .setValue(password).shouldBe(Condition.editable);
         Assert.assertEquals(repeatPasswordInput.getAttribute("value"), passwordInput.getAttribute("value"));
     }
 
-    public void markConfirmAgeCheckBox () {
+    public void markConfirmAgeCheckBox() {
         confirmAgeCheckBox.shouldBe(Condition.visible).click();
         confirmAgeCheckBox.shouldBe(Condition.checked);
-    } public void markPrivacyPolicyCheckBox () {
+    }
+
+    public void markPrivacyPolicyCheckBox() {
         privacyPolicyCheckBox.shouldBe(Condition.visible).click();
         privacyPolicyCheckBox.shouldBe(Condition.checked);
     }
 
-    public void markCaptchaCheckBox () {
+    public void markCaptchaCheckBox() {
         webdriver().driver().switchTo().frame(captchaFrame);
         captchaCheckbox.shouldBe(Condition.visible).click();
         sleep(2500);
@@ -56,7 +60,7 @@ public class CreateAccountPage {
         webdriver().driver().switchTo().defaultContent();
     }
 
-    public void submitForm () {
+    public void submitForm() {
         createAccountSubmit.shouldBe(Condition.visible, Condition.interactable).click();
     }
 }
