@@ -3,8 +3,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -19,7 +18,7 @@ abstract public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1600x900";
         Configuration.headless = false;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
     }
 
     public void openPageAndAcceptCookies() {
@@ -30,13 +29,13 @@ abstract public class BaseTest {
           .click();
     }
 
-    @BeforeTest
+    @BeforeMethod
     public void init() {
         setUp();
         openPageAndAcceptCookies();
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         Selenide.closeWebDriver();
     }
