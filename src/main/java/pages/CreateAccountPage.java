@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.testng.Assert;
 
@@ -53,7 +54,9 @@ public class CreateAccountPage {
     }
 
     public void markCaptchaCheckBox() {
+        createAccountSubmit.scrollIntoView(false);
         webdriver().driver().switchTo().frame(captchaFrame);
+        sleep(10000);
         captchaCheckbox.shouldBe(Condition.visible).click();
         sleep(2500);
         Assert.assertEquals(captchaCheckboxStatus.getAttribute("innerHTML"), "Вы прошли проверку");

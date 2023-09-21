@@ -17,7 +17,7 @@ abstract public class BaseTest {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1600x900";
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.holdBrowserOpen = false;
     }
 
