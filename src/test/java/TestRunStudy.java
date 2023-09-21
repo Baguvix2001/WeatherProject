@@ -62,20 +62,20 @@ public class TestRunStudy extends BaseTest {
 //        mainPage.clickOnSearchButton();
 //        Assert.assertArrayEquals(weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.weatherOnUi().toArray());
 //    }
-
-//    @Test
-//    public void createAccount() {
-//        mainPage.clickOnSingIn();
-//        signPage.createAccount();
-//        createAccountPage.fillUsernameField(NAME_OF_USER);
-//        createAccountPage.fillEmailField(EMAIL_OF_USER);
-//        createAccountPage.fillPasswordFields(PASSWORD);
-//        createAccountPage.markConfirmAgeCheckBox();
-//        createAccountPage.markPrivacyPolicyCheckBox();
-//        createAccountPage.markCaptchaCheckBox();
-//        createAccountPage.submitForm();
-//        modalWindow.checkModalHeaderText();
-//    }
+//
+    @Test
+    public void createAccount() {
+        mainPage.clickOnSingIn();
+        signPage.createAccount();
+        createAccountPage.fillUsernameField(NAME_OF_USER);
+        createAccountPage.fillEmailField(EMAIL_OF_USER);
+        createAccountPage.fillPasswordFields(PASSWORD);
+        createAccountPage.markConfirmAgeCheckBox();
+        createAccountPage.markPrivacyPolicyCheckBox();
+        createAccountPage.markCaptchaCheckBox();
+        createAccountPage.submitForm();
+        modalWindow.checkModalHeaderText();
+    }
 }
 
 
