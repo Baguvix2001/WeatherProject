@@ -29,40 +29,40 @@ public class TestRunStudy extends BaseTest {
         mainPage.cityNameOnUi();
 
     }
-//    @Test
-//    public void searchCityWithManyResults() {
-//        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
-//        mainPage.clickOnSearchButton();
-//        mainPage.searchResultsCheck(CITY_WITH_MANY_RESULTS_LIST);
-//        mainPage.countResults();
-//    }
-//
-//    @Test
-//    public void compareUiAndApiCity() {
-//        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
-//        mainPage.clickOnSearchButton();
-//        Assert.assertArrayEquals(weatherApiTest.cityNamesApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.cityNameOnUi().toArray());
-//    }
-//
-//    @Test
-//    public void checkApiWeather() {
-//        System.out.println("Резултат в градусах цельсия " + weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST));
-//    }
-//
-//    @Test
-//    public void checkUiWeather() {
-//        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
-//        mainPage.clickOnSearchButton();
-//        System.out.println(mainPage.weatherOnUi());
-//    }
-//
-//    @Test
-//    public void compareUiAndApiWeather() {
-//        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
-//        mainPage.clickOnSearchButton();
-//        Assert.assertArrayEquals(weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.weatherOnUi().toArray());
-//    }
-//
+    @Test
+    public void searchCityWithManyResults() {
+        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
+        mainPage.clickOnSearchButton();
+        mainPage.searchResultsCheck(CITY_WITH_MANY_RESULTS_LIST);
+        mainPage.countResults();
+    }
+
+    @Test
+    public void compareUiAndApiCity() {
+        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
+        mainPage.clickOnSearchButton();
+        Assert.assertArrayEquals(weatherApiTest.cityNamesApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.cityNameOnUi().toArray());
+    }
+
+    @Test
+    public void checkApiWeather() {
+        System.out.println("Резултат в градусах цельсия " + weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST));
+    }
+
+    @Test
+    public void checkUiWeather() {
+        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
+        mainPage.clickOnSearchButton();
+        System.out.println(mainPage.weatherOnUi());
+    }
+
+    @Test
+    public void compareUiAndApiWeather() {
+        mainPage.searchInput(CITY_WITH_MANY_RESULTS_LIST);
+        mainPage.clickOnSearchButton();
+        Assert.assertArrayEquals(weatherApiTest.weatherResultsApi(CITY_WITH_MANY_RESULTS_LIST).toArray(), mainPage.weatherOnUi().toArray());
+    }
+
     @Test
     public void createAccount() {
         mainPage.clickOnSingIn();
